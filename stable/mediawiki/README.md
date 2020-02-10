@@ -65,6 +65,7 @@ The following table lists the configurable parameters of the MediaWiki chart and
 | `mediawikiPassword`                  | Application password                                        | _random 10 character long alphanumeric string_          |
 | `mediawikiEmail`                     | Admin email                                                 | `user@example.com`                                      |
 | `mediawikiName`                      | Name for the wiki                                           | `My Wiki`                                               |
+| `mediawikiHost`                      | Mediawiki host to create application URLs                   | `nil`                                                   |
 | `allowEmptyPassword`                 | Allow DB blank passwords                                    | `yes`                                                   |
 | `smtpHost`                           | SMTP host                                                   | `nil`                                                   |
 | `smtpPort`                           | SMTP port                                                   | `nil`                                                   |
@@ -128,6 +129,10 @@ The following table lists the configurable parameters of the MediaWiki chart and
 
 The above parameters map to the env variables defined in [bitnami/mediawiki](http://github.com/bitnami/bitnami-docker-mediawiki). For more information please refer to the [bitnami/mediawiki](http://github.com/bitnami/bitnami-docker-mediawiki) image documentation.
 
+> **Note**:
+>
+> For Mediawiki to function correctly, you should specify the `mediawikiHost` parameter to specify the FQDN (recommended) or the public IP address of the Mediawiki service.
+
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```console
@@ -162,6 +167,14 @@ Persistent Volume Claims are used to keep the data across deployments. This is k
 See the [Parameters](#parameters) section to configure the PVC or to disable persistence.
 
 ## Upgrading
+
+### To 9.0.0
+
+Helm performs a lookup for the object based on its group (apps), version (v1), and kind (Deployment). Also known as its GroupVersionKind, or GVK. Changing the GVK is considered a compatibility breaker from Kubernetes' point of view, so you cannot "upgrade" those objects to the new GVK in-place. Earlier versions of Helm 3 did not perform the lookup correctly which has since been fixed to match the spec.
+
+In https://github.com/helm/charts/pull/17300 the `apiVersion` of the deployment resources was updated to `apps/v1` in tune with the api's deprecated, resulting in compatibility breakage.
+
+This major version signifies this change.
 
 ### To 4.0.0
 
