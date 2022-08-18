@@ -289,7 +289,7 @@ persistence:
 
 service:
   ## service.type Changes to ClusterIP automatically if ingress enabled
-  type: LoadBalancer
+  type: ClusterIP
 
   ## service.HTTPPort Port to advertise the main web service in LoadBalancer mode
   HTTPPort: 80
