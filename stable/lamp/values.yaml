@@ -68,9 +68,9 @@ php:
 
   ## php.resources PHP container resource requests/limits
   resources: true
-    requests:
-      cpu: .25
-      memory: 512Mi
+  requests:
+    cpu: .25
+    memory: 512Mi
 
 httpd:
   ## httpd.repository default httpd image
@@ -81,9 +81,9 @@ httpd:
 
   ## httpd.resources HTTPD container resource requests/limits
   resources: true
-    requests:
-      cpu: .125
-      memory: 256Mi
+  requests:
+    cpu: .125
+    memory: 256Mi
 
 
 mysql:
@@ -116,9 +116,9 @@ mysql:
 
   ## mysql.resources Resource requests/limits
   resources: true
-    requests:
-      cpu: .25
-      memory: 256Mi
+  requests:
+    cpu: .25
+    memory: 256Mi
 
 sftp:
   ## sftp.repository default sftp image
