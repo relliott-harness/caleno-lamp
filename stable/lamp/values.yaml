@@ -67,10 +67,10 @@ php:
   # - subPath2
 
   ## php.resources PHP container resource requests/limits
-  resources: false
-  requests:
-    cpu: .25
-    memory: 512Mi
+  resources: true
+    requests:
+      cpu: .25
+      memory: 512Mi
 
 httpd:
   ## httpd.repository default httpd image
@@ -80,10 +80,10 @@ httpd:
   tag: "2.4-alpine"
 
   ## httpd.resources HTTPD container resource requests/limits
-  resources: false
-  requests:
-    cpu: .125
-    memory: 256Mi
+  resources: true
+    requests:
+      cpu: .125
+      memory: 256Mi
 
 
 mysql:
@@ -115,10 +115,10 @@ mysql:
   sockets: true
 
   ## mysql.resources Resource requests/limits
-  resources: false
-  requests:
-    cpu: .25
-    memory: 256Mi
+  resources: true
+    requests:
+      cpu: .25
+      memory: 256Mi
 
 sftp:
   ## sftp.repository default sftp image
