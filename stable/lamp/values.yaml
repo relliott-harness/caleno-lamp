@@ -67,7 +67,7 @@ php:
   # - subPath2
 
   ## php.resources PHP container resource requests/limits
-  resources: true
+  resources: false
   requests:
     cpu: .25
     memory: 512Mi
@@ -80,7 +80,7 @@ httpd:
   tag: "2.4-alpine"
 
   ## httpd.resources HTTPD container resource requests/limits
-  resources: true
+  resources: false
   requests:
     cpu: .125
     memory: 256Mi
@@ -115,7 +115,7 @@ mysql:
   sockets: true
 
   ## mysql.resources Resource requests/limits
-  resources: true
+  resources: false
   requests:
     cpu: .25
     memory: 256Mi
@@ -148,9 +148,9 @@ sftp:
 
   ## sftp.resources resource requests/limits
   resources: false
-  #  requests:
-  #    cpu: 1m
-  #    memory: 1Mi
+  requests:
+    cpu: .25
+    memory: 128Mi
 
 webdav:
   ## webdav.enabled Enables webdav service
@@ -192,9 +192,9 @@ git:
 
   ## git.resources resource requests/limits
   resources: false
-  #  requests:
-  #    cpu: 1m
-  #    memory: 1Mi
+  requests:
+    cpu: .25
+    memory: 128Mi
 
 svn:
   ## svn.enabled Enables svn service
@@ -237,24 +237,24 @@ phpmyadmin:
 
   ## phpmyadmin.resources resource requests/limits
   resources: false
-  #  requests:
-  #    cpu: 1m
-  #    memory: 1Mi
+  requests:
+    cpu: .25
+    memory: 128Mi
 
 resources:
   requests:
     ## resources.requests.cpu CPU resource requests
-    cpu: 1m
+    cpu: .25
 
     ## resources.requests.memory Memory resource requests
-    memory: 1Mi
+    memory: 256Mi
 
-  # limits:
+  limits:
   ## resources.limits.cpu CPU resource limits
-  #   cpu: 1000m
+    cpu: .5
 
   ## resources.limits.memory Memory resource limits
-  #   memory: 1024Mi
+    memory: 1024Mi
 
 
 ### STORAGE ###
